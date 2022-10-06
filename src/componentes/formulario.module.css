@@ -1,0 +1,16 @@
+.inputClima{
+    width: 200px;
+    height: 30px;
+    margin: 10px 0;
+    padding: 0 8px;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    font-size: medium;
+    border: none;
+    box-shadow: 2px 2px 5px rgb(59, 56, 56);
+    border-radius: 10px;
+}
+
+.inputClima:focus{
+outline: none;
+}
