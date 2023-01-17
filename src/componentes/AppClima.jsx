@@ -3,17 +3,21 @@ import Formulario from "./Formulario";
 import ClimaInfo from "./ClimaInfo";
 import estilos from "./appClima.module.css";
 import Loading from "./Loading";
+import MensajeError from "./MensajeError";
 
 function AppClima() {
+  const [mensajeError, setMensajeError] =useState(false)
   const [clima, setClima] = useState(null);
 
   useEffect(() => {
     loadInfo();
-  }, []);
+  }, [""]);
 
   useEffect(() => {
     document.title = `Clima | ${clima?.location.name ?? ""}`;
   }, [clima]);
+
+ 
 
   async function loadInfo(city = "buenos aires") {
     try {
@@ -22,25 +26,38 @@ function AppClima() {
       );
       const json = await request.json();
       setClima(json);
+            
       if (json.error.code>1){
         setClima(null)
         loadInfo(city ="buenos aires")
-        alert("Error en la búsqueda. Por favor intenta nuevamente")
+        setMensajeError(true)
       }
+    
     } catch (err) {
+
     }
   }
 
   function handleChangeCity(city) {
     setClima(null);
     loadInfo(city);
+    setMensajeError(false)
   }
 
+
+let componente ;
+if (mensajeError){
+  componente =  <MensajeError />
+}
+else{
+  componente= null
+}
   return (
     <div className={estilos.divApp}>
-      <Formulario onChangeCity={handleChangeCity} />
-      {clima ? <ClimaInfo weather={clima} /> : <Loading />}
-    </div>
+      {componente}
+           <Formulario error={mensajeError} onChangeCity={handleChangeCity} />
+              {clima ? <ClimaInfo weather={clima} /> : <Loading />}
+          </div>
   );
 }
 

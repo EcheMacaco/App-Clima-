@@ -1,33 +1,29 @@
 import { useState } from "react";
 import estilos from "./formulario.module.css";
 
-function Formulario({onChangeCity}) {
+function Formulario({ onChangeCity , error}) {
   const [city, setCity] = useState("");
-
-
 
   function onChange(e) {
     const value = e.target.value;
-    if (value !== "" ) {
+    if (value !== "") {
       setCity(value);
-      
     }
   }
 
-  function handleSubmit (e){
+  function handleSubmit(e) {
     e.preventDefault();
-   onChangeCity(city)
-   
+    onChangeCity(city);
   }
-
-
-
-  
 
   return (
     <form onSubmit={handleSubmit}>
-      <input className={estilos.inputClima} type="search" placeholder="Elige una ciudad" onChange={onChange} />
-     
+      <input
+        className={estilos.inputClima}
+        type="search"
+        placeholder="Buscador"
+        onChange={onChange}
+      />
     </form>
   );
 }
