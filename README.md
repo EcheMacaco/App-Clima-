@@ -67,8 +67,8 @@ Punto de entrada que renderiza el componente principal `AppClima`.
 
 La app utiliza dos variables de entorno:
 
-- `REACT_APP_URL`: URL base de la API (por ejemplo, `https://api.weatherapi.com/v1/current.json?`)
-- `REACT_APP_KEY`: clave de API para autenticación.
+- `REACT_APP_URL`: https://www.weatherapi.com/
+- `REACT_APP_KEY`: 2e5e0d31c3ee4b62865184418252905.
 
 Estas se definen en el archivo `.env`.
 
