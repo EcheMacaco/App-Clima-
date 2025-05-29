@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# App Clima
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**App Clima** es una aplicación web desarrollada en React que permite consultar el estado del clima actual de una ciudad determinada. Utiliza una API externa para obtener la información meteorológica y presenta una interfaz simple e interactiva para el usuario.
 
-## Available Scripts
+## Características
 
-In the project directory, you can run:
+- Consulta del clima actual por ciudad.
+- Visualización de datos como ubicación, temperatura y condición climática.
+- Gestión de errores para ciudades inexistentes.
+- Indicador de carga mientras se obtiene la información.
+- Diseño modular con componentes reutilizables.
+- Estilos personalizados utilizando módulos CSS.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Instalación
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clonar el repositorio:
 
-### `npm test`
+```bash
+git clone https://github.com/EcheMacaco/App-Clima-.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Instalar dependencias:
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Ejecutar la aplicación:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Esto abrirá la app en `http://localhost:3000`.
 
-### `npm run eject`
+## Componentes Principales
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `App.js`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Punto de entrada que renderiza el componente principal `AppClima`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### `AppClima.jsx`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Maneja el estado general de la app (clima, errores).
+- Llama a la API y gestiona la lógica de carga y errores.
+- Renderiza los componentes `Formulario`, `ClimaInfo`, `Loading` y `MensajeError`.
 
-## Learn More
+### `Formulario.jsx`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Permite ingresar el nombre de una ciudad.
+- Llama a la función de cambio de ciudad (`onChangeCity`) pasada por props.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `ClimaInfo.jsx`
 
-### Code Splitting
+- Muestra los datos meteorológicos como ciudad, país, temperatura, estado del clima, humedad y velocidad del viento.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### `Loading.jsx`
 
-### Analyzing the Bundle Size
+- Componente de carga que se muestra mientras se obtienen los datos.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### `MensajeError.jsx`
 
-### Making a Progressive Web App
+- Muestra un mensaje si la ciudad ingresada no existe o hay un error en la búsqueda.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Variables de Entorno
 
-### Advanced Configuration
+La app utiliza dos variables de entorno:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- `REACT_APP_URL`: URL base de la API (por ejemplo, `https://api.weatherapi.com/v1/current.json?`)
+- `REACT_APP_KEY`: clave de API para autenticación.
 
-### Deployment
+Estas se definen en el archivo `.env`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Dependencias
 
-### `npm run build` fails to minify
+- React
+- CSS Modules
+- [WeatherAPI](https://www.weatherapi.com/) para los datos climáticos.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Licencia
+
+Este proyecto no especifica licencia.
